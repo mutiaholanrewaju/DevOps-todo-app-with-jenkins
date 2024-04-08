@@ -2,7 +2,19 @@ const newTask = document.getElementById("input");
 const addTask = document.getElementById("add-btn");
 const taskList = document.getElementById("task-list");
 
+// Add a task to the list when button is clicked
 addTask.addEventListener("click", () => {
+    addToList();
+});
+
+// Add a task to the list when Enter key pressed
+newTask.addEventListener("keyup", (e) => {
+    if (e.key === "Enter") {
+        addToList();
+    }
+});
+
+function addToList() {
     let text = newTask.value;
     if (text) {
         // Create the listItems
@@ -39,4 +51,4 @@ addTask.addEventListener("click", () => {
             listItem.classList.toggle("active");
         });
     }
-});
+}
